@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_issue_tracker_user,access_purchase_issue_tracker_user,model_purchase_issue_tracker,base.group_user,1,1,1,1
+access_purchase_issue_tracker_line_user,access_purchase_issue_tracker_line_user,model_purchase_issue_tracker_line,base.group_user,1,1,1,1
+access_damage_reason_user,access_damage_reason_user,model_damage_reason,base.group_user,1,1,1,1

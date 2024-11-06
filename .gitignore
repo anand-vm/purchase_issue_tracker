@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Odoo specific folders and files
+*.log
+*.db
+*.db.*
+*.session
+.odoo/
+.local/
+.coverage
+*.swp
+.idea/
+.vscode/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment and configuration files
+.env
+*.conf
+
+# Ignore cache and temp files
+*.tmp
+*.bak
+*.backup
+*.old
+*.swp
+*.swo
+
+# Ignore compiled assets
+*.css.map
+*.js.map
+
+# Ignore Odoo deployment and data files
+*.zip
+*.dump
+*.tar
+*.tgz
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# Specific for Odoo 17 custom addons
+addons/**/custom_addons/*
+addons/**/custom-addons/*

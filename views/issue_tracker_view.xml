@@ -1,0 +1,102 @@
+<!-- purchase_issue_tracker/views/issue_tracker_view.xml -->
+
+<odoo>
+    <!-- Define the action for Purchase Issue Tracker model -->
+    <record id="action_issue_tracker" model="ir.actions.act_window">
+        <field name="name">Purchase Issue Tracker</field>
+        <field name="res_model">purchase.issue.tracker</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create and manage records for issues with products received from suppliers.
+            </p>
+        </field>
+    </record>
+
+    <!-- Define the form view for Purchase Issue Tracker -->
+    <record id="view_issue_tracker_form" model="ir.ui.view">
+        <field name="name">purchase.issue.tracker.form</field>
+        <field name="model">purchase.issue.tracker</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Issue Tracker">
+                <header>
+                    <!-- Status bar for the state of the record -->
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,closed"/>
+
+                    <!-- Confirm button, visible only in draft state -->
+                    <button name="action_confirm" string="Confirm" type="object"
+                            invisible="1 if not show_confirm_button else 0"/>
+
+                    <!-- Close button, visible only in confirm state -->
+                    <button name="action_close" string="Close" type="object"
+                            invisible="1 if not show_close_button else 0"/>
+
+                    <!-- Draft button, visible only in closed state -->
+                    <button name="action_draft" string="Draft" type="object"
+                            invisible="1 if not show_draft_button else 0"/>
+                </header>
+
+                <sheet>
+                    <!-- Hidden fields for button visibility -->
+                    <field name="show_confirm_button" invisible="1"/>
+                    <field name="show_close_button" invisible="1"/>
+                    <field name="show_draft_button" invisible="1"/>
+
+                    <!-- Main group for form layout -->
+                    <group>
+                        <group col="2">
+                            <!-- Group for vendor and PO information -->
+                            <group>
+                                <field name="vendor_id"/>
+                                <field name="po_no"/>
+                                <field name="vendor_bill_id"/>
+                                <field name="bill_date"/>
+                            </group>
+                            <!-- Group for solution field, with a border and padding for better UI separation -->
+                            <group string="Solution" style="border: 1px solid #d3d3d3; padding: 10px;">
+                                <field name="solution" nolabel="1" colspan="2" widget="textarea"/>
+                            </group>
+                        </group>
+                    </group>
+
+                    <!-- Separator for better visual distinction -->
+                    <separator string=" " colspan="4"/>
+
+                    <!-- One2many field for line items, which lists damaged products -->
+                    <field name="line_ids">
+                        <tree editable="bottom">
+                            <field name="product_id" readonly="1"/>
+                            <field name="quantity"/>
+                            <field name="reason_id"/>
+                            <field name="remarks"/>
+                        </tree>
+                    </field>
+                    <!-- Instruction label for users on how to load items -->
+                    <label string="Please select a Vendor Bill to Load items" for="line_ids"/>
+                </sheet>
+
+                <!-- Add chatter for activity tracking -->
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the tree view for Purchase Issue Tracker -->
+    <record id="view_issue_tracker_tree" model="ir.ui.view">
+        <field name="name">purchase.issue.tracker.tree</field>
+        <field name="model">purchase.issue.tracker</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Issue Tracker">
+                <field name="vendor_id"/>
+                <field name="po_no"/>
+                <field name="vendor_bill_id"/>
+                <field name="bill_date"/>
+                <field name="state"/>
+                <field name="solution"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

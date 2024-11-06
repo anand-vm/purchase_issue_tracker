@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Issue Tracker - Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Purchase Issue Tracker - Module Documentation</h1>
+        <p>This module allows tracking issues related to purchase orders, vendor bills, and damaged products. It is designed for seamless tracking and documentation of issues that may arise during the purchase lifecycle.</p>
+
+        <h2>Module Features</h2>
+        <ul>
+            <li>Manage vendor and purchase order issues</li>
+            <li>Track damaged product lines with detailed information</li>
+            <li>Define and manage solutions to recorded issues</li>
+            <li>Automated status transitions: Draft, Confirmed, Closed</li>
+            <li>Chatter integration to document activity history and notes</li>
+        </ul>
+
+        <h2>Screenshots</h2>
+        <p>Below are some screenshots to demonstrate the key features of the module.</p>
+
+        <!-- Screenshot 1 -->
+        <h3>Issue Tracker Form View</h3>
+        <img src="screenshot1.png" alt="Issue Tracker Form View">
+        <p>The form view provides fields for recording vendor details, purchase order number, and details on issues with products received.</p>
+
+        <!-- Screenshot 2 -->
+        <h3>Issue Line Item Management</h3>
+        <img src="screenshot2.png" alt="Issue Line Item Management">
+        <p>This view enables adding line items for each issue, including product details, quantity, and reasons for issues.</p>
+
+        <h2>Status Workflow</h2>
+        <p>The module provides a workflow to manage issue tracking from <strong>Draft</strong> to <strong>Confirmed</strong> and then <strong>Closed</strong> stages. The workflow buttons adjust based on the status of each issue.</p>
+
+        <h2>Chatter Integration</h2>
+        <p>The chatter feature in Odoo enables tracking of discussions, logging of internal notes, and documenting user activity. This module integrates the chatter to provide a historical record of interactions and resolutions related to each issue.</p>
+
+        <h2>Installation and Configuration</h2>
+        <p>1. Download or clone the <strong>purchase_issue_tracker</strong> module into the <strong>addons</strong> directory of your Odoo instance.</p>
+        <p>2. Go to Apps, update the app list, and install <strong>Purchase Issue Tracker</strong>.</p>
+        <p>3. The module will be available under the <strong>Purchase Issue Tracker</strong> menu, where you can start logging issues with purchases.</p>
+    </div>
+</body>
+</html>
